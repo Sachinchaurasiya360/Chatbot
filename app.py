@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request
 import google.generativeai as genai
+import dotenv
 
 app = Flask(__name__)
 
 # Set up the model and configure API key
-genai.configure(api_key="AIzaSyBx7tvOEqLCUZCu1zSmZEk4zBNjgsbYAho")
+genai.configure=dotenv.get('API_KEY')#create a .env file and add your API key
 generation_config = {
     "temperature": 0.9,
     "top_p": 1,
